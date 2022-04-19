@@ -6,7 +6,12 @@
     copy: 
       src: target/hello.war
       dest: /opt/tomcat/webapps/
+    notify:
+           - war
+  handlers:
   - name: stop the tomcat
     shell: nohup /opt/tomcat/bin/shutdown.sh
+    listen: "war"
   - name: starting the tomcat
     shell: nohup /opt/tomcat/bin/startup.sh
+    listen: "war"
