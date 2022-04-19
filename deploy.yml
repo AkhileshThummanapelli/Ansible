@@ -1,6 +1,7 @@
 ---
 - hosts: Appservers
   become: true
+  gather_facts: no
   tasks:
   - name: Copy the war file
     copy: 
